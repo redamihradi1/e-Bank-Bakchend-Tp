@@ -1,5 +1,6 @@
 package ma.mihradi.ebankbackend;
 
+import ma.mihradi.ebankbackend.dtos.CustomerDTO;
 import ma.mihradi.ebankbackend.entities.*;
 import ma.mihradi.ebankbackend.enums.AccountStatus;
 import ma.mihradi.ebankbackend.enums.OperationType;
@@ -33,7 +34,7 @@ public class EbankBackendApplication {
     CommandLineRunner commandLineRunner(BankAccountService bankAccountService){
         return args -> {
            Stream.of("Reda","Driss","Ahmed").forEach(name->{
-               Customer customer =new Customer();
+               CustomerDTO customer =new CustomerDTO();
                customer.setName(name);
                customer.setEmail(name+"@gmail.com");
                bankAccountService.saveCustomer(customer);
