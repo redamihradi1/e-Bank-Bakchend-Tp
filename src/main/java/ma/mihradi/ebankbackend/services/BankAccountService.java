@@ -1,13 +1,7 @@
 package ma.mihradi.ebankbackend.services;
 
-import ma.mihradi.ebankbackend.dtos.BankAccountDTO;
-import ma.mihradi.ebankbackend.dtos.CurrentBankAccountDTO;
-import ma.mihradi.ebankbackend.dtos.CustomerDTO;
-import ma.mihradi.ebankbackend.dtos.SavingBankAccountDTO;
-import ma.mihradi.ebankbackend.entities.BankAccount;
-import ma.mihradi.ebankbackend.entities.CurrentAccount;
-import ma.mihradi.ebankbackend.entities.Customer;
-import ma.mihradi.ebankbackend.entities.SavingAccount;
+import ma.mihradi.ebankbackend.dtos.*;
+import ma.mihradi.ebankbackend.entities.*;
 import ma.mihradi.ebankbackend.exceptions.BalanceNotSufficentException;
 import ma.mihradi.ebankbackend.exceptions.BankAccountNotFoundException;
 import ma.mihradi.ebankbackend.exceptions.CustomerNotFoundException;
@@ -30,4 +24,8 @@ public interface BankAccountService {
     CustomerDTO updateCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer(Long customerId);
+
+    List<AccountOperationDTO> accountHistory(String accountId);
+
+    AccountHistoryDto getAccountHistory(String accountId, int page, int size) throws BankAccountNotFoundException;
 }
